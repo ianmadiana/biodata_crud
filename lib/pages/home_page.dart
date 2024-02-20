@@ -54,19 +54,41 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _removeBiodata(BiodataModel biodata) {
+    final biodataIndex = _registeredBiodata.indexOf(biodata);
     setState(() {
       _registeredBiodata.remove(biodata);
     });
+
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: const Text('Data deleted'),
+      action: SnackBarAction(
+        label: 'Undo',
+        onPressed: () {
+          setState(() {
+            _registeredBiodata.insert(biodataIndex, biodata);
+          });
+        },
+      ),
+    ));
   }
 
   @override
   Widget build(BuildContext context) {
+    Widget mainContent = const Center(
+      child: Text('Data not found.'),
+    );
+
+    if (_registeredBiodata.isNotEmpty) {
+      mainContent = BiodataItemList(
+          biodata: _registeredBiodata, onRemoveBiodata: _removeBiodata);
+    }
     return Scaffold(
         appBar: AppBar(
           title: const Text('Biodata CRUD'),
         ),
-        body: BiodataItemList(
-            biodata: _registeredBiodata, onRemoveBiodata: _removeBiodata),
+        body: mainContent,
+        // BiodataItemList(
+        //     biodata: _registeredBiodata, onRemoveBiodata: _removeBiodata),
         floatingActionButton: FloatingActionButton(
           onPressed: () => showModalBottomSheet(
             useSafeArea: true,
