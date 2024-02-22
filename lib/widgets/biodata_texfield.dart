@@ -11,8 +11,10 @@ class BioTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       controller: textFieldController,
-      decoration:
-          InputDecoration(labelText: labelBio, border: UnderlineInputBorder()),
+      decoration: InputDecoration(
+          labelText: labelBio,
+          border: const UnderlineInputBorder(),
+          labelStyle: Theme.of(context).textTheme.titleSmall),
     );
   }
 }

@@ -1,29 +1,19 @@
 import 'package:flutter/material.dart';
 
 import 'pages/home_page.dart';
+import 'theme/my_theme_dark.dart';
 
 // global variabel atau
 // variabel yang biasa digunakan untuk color scheme
 var kColorScheme = ColorScheme.fromSeed(seedColor: Colors.amber);
+var kIndigoColorScheme = ColorScheme.fromSeed(seedColor: Colors.indigo);
+var kDarkColorScheme = ColorScheme.fromSeed(seedColor: const Color(0xFF3C0753));
 
 void main(List<String> args) {
   runApp(MaterialApp(
-    theme: ThemeData().copyWith(
-        colorScheme: kColorScheme,
-        appBarTheme: AppBarTheme(
-            backgroundColor: kColorScheme.onPrimaryContainer,
-            foregroundColor: kColorScheme.onPrimary),
-        cardTheme: CardTheme(
-            color: kColorScheme.secondaryContainer,
-            margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 10)),
-        elevatedButtonTheme: ElevatedButtonThemeData(
-            style: ElevatedButton.styleFrom(
-                backgroundColor: kColorScheme.primaryContainer)),
-        textTheme: ThemeData().textTheme.copyWith(
-            titleLarge: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 24,
-                color: kColorScheme.onSecondaryContainer))),
+    // theme: myThemeDark,
+    darkTheme: myThemeDark,
+    themeMode: ThemeMode.system,
     home: const HomePage(),
   ));
 }

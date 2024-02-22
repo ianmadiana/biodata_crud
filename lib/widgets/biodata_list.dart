@@ -20,8 +20,11 @@ class BiodataItemList extends StatelessWidget {
               background: Container(
                 color: Theme.of(context).colorScheme.errorContainer,
                 margin: EdgeInsets.symmetric(
-                    horizontal: Theme.of(context).cardTheme.margin!.horizontal,
-                    vertical: Theme.of(context).cardTheme.margin!.vertical),
+                  horizontal: Theme.of(context).cardTheme.margin!.horizontal,
+                  vertical: Theme.of(context).cardTheme.margin!.vertical,
+                  // horizontal: 16,
+                  // vertical: 10
+                ),
                 child: Center(
                   child: Text(
                     'Delete',
