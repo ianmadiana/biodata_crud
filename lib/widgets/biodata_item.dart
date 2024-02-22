@@ -21,7 +21,11 @@ class BiodataItem extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(biodata.name),
+              Text(
+                biodata.name,
+                // Theme.of(context).textTheme.titleLarge dipengaruhi dari theme data di main.dart
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
               Text(biodata.age),
               Text(biodata.address),
               Text(biodata.telpNumber.toString()),

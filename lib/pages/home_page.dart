@@ -54,17 +54,20 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _removeBiodata(BiodataModel biodata) {
+    // letak index
     final biodataIndex = _registeredBiodata.indexOf(biodata);
     setState(() {
       _registeredBiodata.remove(biodata);
     });
 
+    // Snackbar dengan undo button
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       content: const Text('Data deleted'),
       action: SnackBarAction(
         label: 'Undo',
         onPressed: () {
           setState(() {
+            // insert data yang di-undo ke posisi sesuai index
             _registeredBiodata.insert(biodataIndex, biodata);
           });
         },
@@ -74,10 +77,11 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    // variabel ketika tidak ada Biodata di home screen
     Widget mainContent = const Center(
       child: Text('Data not found.'),
     );
-
+    // jika ada data maka tampilkan data yang ada
     if (_registeredBiodata.isNotEmpty) {
       mainContent = BiodataItemList(
           biodata: _registeredBiodata, onRemoveBiodata: _removeBiodata);
@@ -94,6 +98,8 @@ class _HomePageState extends State<HomePage> {
             useSafeArea: true,
             isScrollControlled: true,
             context: context,
+            // memanggil kelas untuk menambahkan add biodata
+            // di kelas ini ada argumen untuk memanggil fungsi untuk menambahkan biodata
             builder: (context) => AddBiodata(onAddBiodata: _addDataBio),
           ),
           child: const Icon(Icons.add),

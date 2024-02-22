@@ -17,6 +17,18 @@ class BiodataItemList extends StatelessWidget {
     return ListView.builder(
         itemCount: biodata.length,
         itemBuilder: (context, index) => Dismissible(
+              background: Container(
+                color: Theme.of(context).colorScheme.errorContainer,
+                margin: EdgeInsets.symmetric(
+                    horizontal: Theme.of(context).cardTheme.margin!.horizontal,
+                    vertical: Theme.of(context).cardTheme.margin!.vertical),
+                child: Center(
+                  child: Text(
+                    'Delete',
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                ),
+              ),
               onDismissed: (direction) {
                 onRemoveBiodata(biodata[index]);
               },
