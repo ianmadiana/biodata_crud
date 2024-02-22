@@ -18,7 +18,7 @@ var myThemeDark = ThemeData.dark().copyWith(
   textTheme: ThemeData().textTheme.copyWith(
         titleLarge: TextStyle(
             fontWeight: FontWeight.bold,
-            fontSize: 24,
+            fontSize: 18,
             color: kDarkColorScheme.onSecondaryContainer),
         titleSmall: TextStyle(color: kDarkColorScheme.onSecondary),
       ),

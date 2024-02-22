@@ -17,7 +17,7 @@ var myThemeAmber = ThemeData().copyWith(
   textTheme: ThemeData().textTheme.copyWith(
         titleLarge: TextStyle(
             fontWeight: FontWeight.bold,
-            fontSize: 24,
+            fontSize: 18,
             color: kColorScheme.onSecondaryContainer),
       ),
 );

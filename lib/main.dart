@@ -1,3 +1,5 @@
+import 'package:biodata_crud/theme/my_theme_amber.dart';
+import 'package:biodata_crud/theme/my_theme_light.dart';
 import 'package:flutter/material.dart';
 
 import 'pages/home_page.dart';
@@ -8,11 +10,13 @@ import 'theme/my_theme_dark.dart';
 var kColorScheme = ColorScheme.fromSeed(seedColor: Colors.amber);
 var kIndigoColorScheme = ColorScheme.fromSeed(seedColor: Colors.indigo);
 var kDarkColorScheme = ColorScheme.fromSeed(seedColor: const Color(0xFF3C0753));
+bool isDarkMode = false;
 
 void main(List<String> args) {
   runApp(MaterialApp(
-    // theme: myThemeDark,
-    darkTheme: myThemeDark,
+    theme: myThemeLight,
+    // darkTheme: isDarkMode ? myThemeDark : myThemeAmber,
+    // theme: myThemeLight,
     themeMode: ThemeMode.system,
     home: const HomePage(),
   ));
