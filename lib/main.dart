@@ -1,9 +1,7 @@
-import 'package:biodata_crud/theme/my_theme_amber.dart';
 import 'package:biodata_crud/theme/my_theme_light.dart';
 import 'package:flutter/material.dart';
 
 import 'pages/home_page.dart';
-import 'theme/my_theme_dark.dart';
 
 // global variabel atau
 // variabel yang biasa digunakan untuk color scheme
