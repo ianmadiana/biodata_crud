@@ -1,3 +1,4 @@
+import 'package:biodata_crud/theme/my_theme_amber.dart';
 import 'package:biodata_crud/theme/my_theme_light.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,7 @@ bool isDarkMode = false;
 
 void main(List<String> args) {
   runApp(MaterialApp(
-    theme: myThemeLight,
+    theme: myThemeAmber,
     // darkTheme: isDarkMode ? myThemeDark : myThemeAmber,
     // theme: myThemeLight,
     themeMode: ThemeMode.system,

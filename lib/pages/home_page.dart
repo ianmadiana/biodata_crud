@@ -84,25 +84,29 @@ class _HomePageState extends State<HomePage> {
     // jika ada data maka tampilkan data yang ada
     if (_registeredBiodata.isNotEmpty) {
       mainContent = BiodataItemList(
-          biodata: _registeredBiodata, onRemoveBiodata: _removeBiodata);
+        biodata: _registeredBiodata,
+        onRemoveBiodata: _removeBiodata,
+        onAddBiodata: _addDataBio,
+      );
     }
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Biodata CRUD'),
+      appBar: AppBar(
+        title: const Text('Biodata CRUD'),
+      ),
+      body: mainContent,
+      // BiodataItemList(
+      //     biodata: _registeredBiodata, onRemoveBiodata: _removeBiodata),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => showModalBottomSheet(
+          useSafeArea: true,
+          isScrollControlled: true,
+          context: context,
+          // memanggil kelas untuk menambahkan add biodata
+          // di kelas ini ada argumen untuk memanggil fungsi untuk menambahkan biodata
+          builder: (context) => AddBiodata(onAddBiodata: _addDataBio),
         ),
-        body: mainContent,
-        // BiodataItemList(
-        //     biodata: _registeredBiodata, onRemoveBiodata: _removeBiodata),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () => showModalBottomSheet(
-            useSafeArea: true,
-            isScrollControlled: true,
-            context: context,
-            // memanggil kelas untuk menambahkan add biodata
-            // di kelas ini ada argumen untuk memanggil fungsi untuk menambahkan biodata
-            builder: (context) => AddBiodata(onAddBiodata: _addDataBio),
-          ),
-          child: const Icon(Icons.add),
-        ));
+        child: const Icon(Icons.add),
+      ),
+    );
   }
 }

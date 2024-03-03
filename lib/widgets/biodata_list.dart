@@ -7,10 +7,12 @@ class BiodataItemList extends StatelessWidget {
     super.key,
     required this.biodata,
     required this.onRemoveBiodata,
+    required this.onAddBiodata,
   });
 
   final void Function(BiodataModel biodata) onRemoveBiodata;
   final List<BiodataModel> biodata;
+  final void Function(BiodataModel biodata) onAddBiodata;
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +40,7 @@ class BiodataItemList extends StatelessWidget {
               key: ValueKey(biodata[index]),
               child: BiodataItem(
                 biodata: biodata[index],
+                onAddBiodata: onAddBiodata,
               ),
             ));
   }

@@ -3,16 +3,21 @@ import 'package:flutter/material.dart';
 
 import 'biodata_texfield.dart';
 
-class AddBiodata extends StatefulWidget {
-  const AddBiodata({super.key, required this.onAddBiodata});
+class EditBiodata extends StatefulWidget {
+  const EditBiodata({
+    super.key,
+    required this.onAddBiodata,
+    required this.biodata,
+  });
 
   final void Function(BiodataModel biodata) onAddBiodata;
+  final BiodataModel biodata;
 
   @override
-  State<AddBiodata> createState() => _AddBiodataState();
+  State<EditBiodata> createState() => _EditBiodataState();
 }
 
-class _AddBiodataState extends State<AddBiodata> {
+class _EditBiodataState extends State<EditBiodata> {
   final _nameController = TextEditingController();
 
   final _ageController = TextEditingController();
@@ -79,15 +84,22 @@ class _AddBiodataState extends State<AddBiodata> {
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
                 BioTextField(
-                    labelBio: 'Name', textFieldController: _nameController),
+                  labelBio: 'Name',
+                  textFieldController: _nameController,
+                  bioHint: widget.biodata.name,
+                ),
                 BioTextField(
-                    labelBio: 'Age', textFieldController: _ageController),
+                    labelBio: 'Age',
+                    textFieldController: _ageController,
+                    bioHint: widget.biodata.age),
                 BioTextField(
                     labelBio: 'Address',
-                    textFieldController: _addressController),
+                    textFieldController: _addressController,
+                    bioHint: widget.biodata.address),
                 BioTextField(
                     labelBio: 'Telephone Number',
-                    textFieldController: _telpNumberController),
+                    textFieldController: _telpNumberController,
+                    bioHint: widget.biodata.telpNumber.toString()),
                 const SizedBox(height: 20),
                 Row(
                   // crossAxisAlignment: CrossAxisAlignment.end,

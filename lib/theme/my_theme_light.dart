@@ -24,5 +24,5 @@ var myThemeLight = ThemeData.light().copyWith(
         titleSmall: TextStyle(color: kLightColorScheme.onSecondary),
       ),
   bottomSheetTheme: BottomSheetThemeData(
-      backgroundColor: kLightColorScheme.onPrimaryContainer),
+      backgroundColor: kLightColorScheme.onSecondaryContainer),
 );
